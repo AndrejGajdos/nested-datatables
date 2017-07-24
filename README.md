@@ -20,13 +20,13 @@ table.initializeTableHierarchy();
 
 ### NestedTables(wrapperID, data, settings)
 
-Main NestedTables constructor
+Main NestedTables constructor.
 
 #### wrapperID
 
 Type: `String`
 
-Id of a DOM element where will be table hierarchy rendered.
+ID of a DOM element where will be table hierarchy rendered.
 
 #### data
 
@@ -42,7 +42,7 @@ Settings for jQuery DataTables constructor.
 
 ### .initializeTableHierarchy()
 
-Build nested table hierarchy
+Build nested table hierarchy.
 
 ## Example
 
