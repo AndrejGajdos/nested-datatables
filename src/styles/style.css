@@ -1,0 +1,35 @@
+.tableWrapper table.dataTable th, .tableWrapper table.dataTable.cell-border tbody tr:first-child th {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
+.tableWrapper table.dataTable th:first-child {
+  border-left: 1px solid #dddddd;
+}
+
+.tableWrapper table.dataTable.no-footer{
+  border-bottom: 1px solid #dddddd;
+}
+
+.tableWrapper table.dataTable tr.rowHover:hover {
+  cursor: pointer;
+  cursor: hand;
+  background: #e9f5dc;
+}
+
+.tableWrapper table.dataTable td img{
+  transition-duration: 0.5s;
+}
+
+.tableWrapper table.dataTable td img.rotate-down{
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}
+
+.tableWrapper table.dataTable td img.rotate-up{
+  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(0deg);
+}

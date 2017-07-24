@@ -1,0 +1,52 @@
+{
+  "name": "nested-datatables",
+  "version": "0.0.1",
+  "description": "jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.",
+  "main": "dist/nested.datatables.js",
+  "scripts": {
+    "build": "webpack -d",
+    "prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AndrejGajdos/nested-datatables.git"
+  },
+  "keywords": [
+    "jquery",
+    "datatables",
+    "plugin",
+    "table",
+    "nested",
+    "inner",
+    "hierarchy",
+    "drill-down"
+  ],
+  "author": "Andrej Gajdos <mail@andrejgajdos.com> (http://andrejgajdos.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndrejGajdos/nested-datatables/issues"
+  },
+  "homepage": "https://github.com/AndrejGajdos/nested-datatables#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel": "^6.23.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "node-sass": "^4.5.3",
+    "postcss": "^6.0.8",
+    "postcss-loader": "^2.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.3.0"
+  },
+  "dependencies": {
+    "datatables": "^1.10.13",
+    "jquery": "^3.2.1"
+  }
+}
