@@ -1,3 +1,7 @@
+.tableWrapper table.dataTable td {
+  vertical-align: middle;
+}
+
 .tableWrapper table.dataTable th, .tableWrapper table.dataTable.cell-border tbody tr:first-child th {
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
