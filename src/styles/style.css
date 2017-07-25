@@ -18,10 +18,6 @@
   background: #e9f5dc;
 }
 
-.tableWrapper table.dataTable td {
-  vertical-align: middle;
-}
-
 .tableWrapper table.dataTable td img{
   transition-duration: 0.5s;
 }

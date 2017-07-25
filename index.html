@@ -24,6 +24,10 @@
 .en-markup-crop-options div div:first-of-type {
     margin-left: 0px !important;
 }
+
+.tableWrapper table.dataTable td {
+  vertical-align: middle;
+}
 </style></head>
 
   <body cz-shortcut-listen="true">
@@ -199,8 +203,8 @@
       "bInfo": false
    };
 
-     var a = new lib.NestedTables("example", dataInJson, settigns);
-     a.initializeTableHierarchy();
+     var table = new lib.NestedTables("example", dataInJson, settigns);
+     table.initializeTableHierarchy();
 
 </script>
 

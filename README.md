@@ -1,6 +1,9 @@
 # Nested-datatables
 jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.
 
+### [Demo](https://andrejgajdos.github.io/nested-datatables/)
+### [JSFiddle](https://jsfiddle.net/andrej_gajdos/zu11wk2o/)
+
 ## Installation
 
 Download the [latest version](https://github.com/AndrejGajdos/nested-datatables/archive/master.zip) and include [nested.datatables.min.js](https://github.com/AndrejGajdos/nested-datatables/blob/master/dist/nested.datatables.js) file
