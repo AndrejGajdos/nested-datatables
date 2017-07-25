@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <meta name="description" content="nested-datatables : jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/nested-datatables/assets/css/style.css?v=cd7a2da0f2f66a8c86379cbde71985cbd9e0c742">
+
+    <title>nested-datatables</title>
+  <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+
+  <body cz-shortcut-listen="true">
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/AndrejGajdos/nested-datatables">View on GitHub</a>
+
+          <h1 id="project_title">Nested-datatables</h1>
+          <h2 id="project_tagline">jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.</h2>
+
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="nested-datatables">Nested-datatables</h1>
+<p>jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Download the <a href="https://github.com/AndrejGajdos/nested-datatables/archive/master.zip">latest version</a> and include <a href="https://github.com/AndrejGajdos/nested-datatables/blob/master/dist/nested.datatables.js">nested.datatables.min.js</a> file</p>
+
+<h3 id="npm">NPM</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install nested-datatables
+</code></pre>
+</div>
+
+<h3 id="usage">Usage</h3>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">NestedTables</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">settigns</span><span class="p">);</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">initializeTableHierarchy</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<h2 id="api">API</h2>
+
+<h3 id="nestedtableswrapperid-data-settings">NestedTables(wrapperID, data, settings)</h3>
+
+<p>Main NestedTables constructor.</p>
+
+<h4 id="wrapperid">wrapperID</h4>
+
+<p>Type: <code class="highlighter-rouge">String</code></p>
+
+<p>ID of a DOM element where will be table hierarchy rendered.</p>
+
+<h4 id="data">data</h4>
+
+<p>Type: <code class="highlighter-rouge">Array.&lt;Object&gt;</code></p>
+
+<p>Data used for building table hierarchy. Each item consists of property <code class="highlighter-rouge">data</code> and property <code class="highlighter-rouge">kids</code>, which represents array of child elements.</p>
+
+<h4 id="settings">settings</h4>
+
+<p>Type: <code class="highlighter-rouge">Object</code></p>
+
+<p>Settings for jQuery DataTables constructor.</p>
+
+<h3 id="initializetablehierarchy">.initializeTableHierarchy()</h3>
+
+<p>Build nested table hierarchy.</p>
+
+<h2 id="example">Example</h2>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./dist/nested.datatables.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"example"</span> <span class="na">class=</span><span class="s">'container'</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+
+      <span class="kd">var</span> <span class="nx">dataInJson</span> <span class="o">=</span> <span class="p">[{</span>
+      <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"b1"</span><span class="p">,</span>
+         <span class="s2">"street"</span><span class="p">:</span> <span class="s2">"s1"</span><span class="p">,</span>
+         <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"c1"</span><span class="p">,</span>
+         <span class="s2">"departments"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+         <span class="s2">"offices"</span><span class="p">:</span> <span class="mi">15</span>
+      <span class="p">},</span>
+      <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+         <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"department"</span><span class="p">:</span> <span class="s2">"HR"</span><span class="p">,</span>
+            <span class="s2">"supervisor"</span><span class="p">:</span> <span class="s2">"Isidor Bristol"</span><span class="p">,</span>
+            <span class="s2">"floor"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"employees"</span><span class="p">:</span> <span class="mi">15</span>
+         <span class="p">},</span>
+         <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Klement Nikodemos"</span><span class="p">,</span>
+                  <span class="s2">"phone"</span><span class="p">:</span> <span class="s2">"+938462"</span><span class="p">,</span>
+                  <span class="s2">"hire_date"</span><span class="p">:</span> <span class="s2">"January 1, 2010"</span><span class="p">,</span>
+                  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">3456</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">},</span> <span class="p">{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Madhava Helmuth"</span><span class="p">,</span>
+                  <span class="s2">"phone"</span><span class="p">:</span> <span class="s2">"+348902"</span><span class="p">,</span>
+                  <span class="s2">"hire_date"</span><span class="p">:</span> <span class="s2">"May 23, 2002"</span><span class="p">,</span>
+                  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1234</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">},</span> <span class="p">{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Andria Jesse"</span><span class="p">,</span>
+                  <span class="s2">"phone"</span><span class="p">:</span> <span class="s2">"456123"</span><span class="p">,</span>
+                  <span class="s2">"hire_date"</span><span class="p">:</span> <span class="s2">"October 23, 2011"</span><span class="p">,</span>
+                  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">9821</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+
+         <span class="p">]</span>
+      <span class="p">},</span> <span class="p">{</span>
+         <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"department"</span><span class="p">:</span> <span class="s2">"development"</span><span class="p">,</span>
+            <span class="s2">"supervisor"</span><span class="p">:</span> <span class="s2">"Jim Linwood"</span><span class="p">,</span>
+            <span class="s2">"floor"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">"employees"</span><span class="p">:</span> <span class="mi">18</span>
+         <span class="p">},</span>
+         <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Origenes Maxwell"</span><span class="p">,</span>
+                  <span class="s2">"phone"</span><span class="p">:</span> <span class="s2">"345892"</span><span class="p">,</span>
+                  <span class="s2">"hire_date"</span><span class="p">:</span> <span class="s2">"February 1, 2004"</span><span class="p">,</span>
+                  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">6234</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+
+         <span class="p">]</span>
+      <span class="p">},</span> <span class="p">{</span>
+         <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"department"</span><span class="p">:</span> <span class="s2">"testing"</span><span class="p">,</span>
+            <span class="s2">"supervisor"</span><span class="p">:</span> <span class="s2">"Zekeriya Seok"</span><span class="p">,</span>
+            <span class="s2">"floor"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s2">"employees"</span><span class="p">:</span> <span class="mi">11</span>
+         <span class="p">},</span>
+         <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+
+      <span class="p">}]</span>
+         <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"b2"</span><span class="p">,</span>
+               <span class="s2">"street"</span><span class="p">:</span> <span class="s2">"s10"</span><span class="p">,</span>
+               <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"c2"</span><span class="p">,</span>
+               <span class="s2">"departments"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+               <span class="s2">"offices"</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">},</span>
+            <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"department"</span><span class="p">:</span> <span class="s2">"development"</span><span class="p">,</span>
+                  <span class="s2">"supervisor"</span><span class="p">:</span> <span class="s2">"Gallagher Howie"</span><span class="p">,</span>
+                  <span class="s2">"floor"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                  <span class="s2">"employees"</span><span class="p">:</span> <span class="mi">24</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+                     <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Wat Dakota"</span>
+                     <span class="p">},</span>
+                     <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+                  <span class="p">}</span>
+
+               <span class="p">]</span>
+            <span class="p">},</span> <span class="p">{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"department"</span><span class="p">:</span> <span class="s2">"testing"</span><span class="p">,</span>
+                  <span class="s2">"supervisor"</span><span class="p">:</span> <span class="s2">"Shirley Gayle"</span><span class="p">,</span>
+                  <span class="s2">"floor"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                  <span class="s2">"employees"</span><span class="p">:</span> <span class="mi">11</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+
+            <span class="p">}]</span>
+
+         <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"b3"</span><span class="p">,</span>
+               <span class="s2">"street"</span><span class="p">:</span> <span class="s2">"s3"</span><span class="p">,</span>
+               <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"c3"</span><span class="p">,</span>
+               <span class="s2">"departments"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s2">"offices"</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">},</span>
+            <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+               <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"department"</span><span class="p">:</span> <span class="s2">"development"</span>
+               <span class="p">},</span>
+               <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[{</span>
+                     <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Wat Dakota"</span>
+                     <span class="p">},</span>
+                     <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+                  <span class="p">}</span>
+
+               <span class="p">]</span>
+            <span class="p">},</span> <span class="p">{</span>
+
+            <span class="p">}]</span>
+         <span class="p">},</span>
+
+         <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"b4"</span><span class="p">,</span>
+               <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"c4"</span>
+            <span class="p">},</span>
+            <span class="s2">"kids"</span><span class="p">:</span> <span class="p">[]</span>
+         <span class="p">}</span>
+
+      <span class="p">];</span>
+
+       <span class="kd">var</span> <span class="nx">settigns</span> <span class="o">=</span> <span class="p">{</span>
+     			<span class="s2">"iDisplayLength"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+     			<span class="s2">"bLengthChange"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     			<span class="s2">"bFilter"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     			<span class="s2">"bSort"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     			<span class="s2">"bInfo"</span><span class="p">:</span> <span class="kc">false</span>
+       <span class="p">};</span>
+
+         <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">NestedTables</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span> <span class="nx">dataInJson</span><span class="p">,</span> <span class="nx">settigns</span><span class="p">);</span>
+         <span class="nx">table</span><span class="p">.</span><span class="nx">initializeTableHierarchy</span><span class="p">();</span>
+
+    <span class="nt">&lt;/script&gt;</span>
+
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="license">License</h2>
+
+<p>MIT © <a href="http://andrejgajdos.com">Andrej Gajdos</a></p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+
+        <p class="copyright">nested-datatables maintained by <a href="https://github.com/AndrejGajdos">AndrejGajdos</a></p>
+
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+
+
+
+</body></html>
