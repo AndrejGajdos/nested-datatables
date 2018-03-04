@@ -19,7 +19,7 @@ var table = new lib.NestedTables("example", data, settigns);
 table.initializeTableHierarchy();
 ```
 
-## Methods
+## API
 
 ### NestedTables(wrapperID, data, settings)
 
@@ -46,32 +46,6 @@ Settings for jQuery DataTables constructor.
 ### .initializeTableHierarchy()
 
 Build nested table hierarchy.
-
-## Events
-
-#### onShowChildHierarchy
-
-Triggered when a child hierarchy is shown
-
-```js
-// '#example' is wrapper ID for table hierarchy
-var tableEle = document.querySelector( "#example .table" );
-tableEle.addEventListener("onShowChildHierarchy", function(e) {
-    console.log(e);
-});
-```
-
-#### onHideChildHierarchy
-
-Triggered when a child hierarchy is hidden
-
-```js
-// '#example' is wrapper ID for table hierarchy
-var tableEle = document.querySelector( "#example .table" );
-tableEle.addEventListener("onHideChildHierarchy", function(e) {
-    console.log(e);
-});
-```
 
 ## Example
 

@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="/nested-datatables/assets/css/style.css?v=cd7a2da0f2f66a8c86379cbde71985cbd9e0c742">
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-  <script src="/nested-datatables/dist/nested.tables.min.js"></script>
+  <script src="/nested-datatables/dist/nested.datatables.min.js"></script>
 
   <style>
     footer {
@@ -208,16 +208,8 @@
           "bInfo": false
         };
 
-        var table = new nestedTables.TableHierarchy("example", dataInJson, settings);
+        var table = new lib.NestedTables("example", dataInJson, settigns);
         table.initializeTableHierarchy();
-
-        var tableEle = document.querySelector( "#example .table" );
-        tableEle.addEventListener("onShowChildHierarchy", function(e) {
-            console.log(e);
-        });
-        tableEle.addEventListener("onHideChildHierarchy", function(e) {
-            console.log(e);
-        });
       </script>
 
       <h3 id="jsfiddle"><a href='https://jsfiddle.net/andrej_gajdos/zu11wk2o/'>JSFiddle</a></h3>
