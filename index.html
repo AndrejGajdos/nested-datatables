@@ -237,7 +237,7 @@
 </code></pre>
       </div>
 
-      <h2 id="api">API</h2>
+      <h2 id="api">Methods</h2>
 
       <h3 id="nestedtableswrapperid-data-settings">NestedTables(wrapperID, data, settings)</h3>
 
@@ -264,6 +264,32 @@
       <h3 id="initializetablehierarchy">.initializeTableHierarchy()</h3>
 
       <p>Build nested table hierarchy.</p>
+
+      <h2 id="api">Events</h2>
+
+      <h3>onShowChildHierarchy()</h3>
+
+      <p>Triggered when a child hierarchy is shown</p>
+
+      <div class="language-js highlighter-rouge"><pre class="highlight"><code>
+        // '#example' is wrapper ID for table hierarchy
+        var tableEle = document.querySelector( "#example .table" );
+        tableEle.addEventListener("onShowChildHierarchy", function(e) {
+            console.log(e);
+        });
+      </code></pre></div>
+
+      <h3>onHideChildHierarchy()</h3>
+
+      <p>Triggered when a child hierarchy is hidden</p>
+
+      <div class="language-js highlighter-rouge"><pre class="highlight"><code>
+        // '#example' is wrapper ID for table hierarchy
+        var tableEle = document.querySelector( "#example .table" );
+        tableEle.addEventListener("onHideChildHierarchy", function(e) {
+            console.log(e);
+        });
+      </code></pre></div>
 
       <h2 id="example">Example</h2>
 
