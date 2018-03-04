@@ -1,3 +1,2 @@
-import NestedTables from './src/script/NestedTables'
-
-export {NestedTables};
+import TableHierarchy from './src/script/NestedTables'
+export {TableHierarchy};
