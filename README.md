@@ -15,13 +15,13 @@ $ npm install nested-datatables
 
 ### Usage
 ```js
-var table = new lib.NestedTables("example", data, settigns);
+var table = new nestedTables.TableHierarchy("example", data, settigns);
 table.initializeTableHierarchy();
 ```
 
 ## Methods
 
-### NestedTables(wrapperID, data, settings)
+### TableHierarchy(wrapperID, data, settings)
 
 Main NestedTables constructor.
 
@@ -237,7 +237,7 @@ tableEle.addEventListener("onHideChildHierarchy", function(e) {
      			"bInfo": false
        };
 
-         var table = new lib.NestedTables("example", dataInJson, settigns);
+         var table = new nestedTables.TableHierarchy("example", dataInJson, settigns);
          table.initializeTableHierarchy();
 
     </script>
