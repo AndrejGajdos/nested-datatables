@@ -111,14 +111,13 @@ export default class TableHierarchy {
             }
           }
         }
-        var mainTable = document.getElementById(that.tables[0][1].attr('id'));
 
         if (parentTable.fnIsOpen($(this))) {
           /* This row is already opened - close it */
           if (document.createEvent) {
-            mainTable.dispatchEvent(tableHideEvt);
+            this.dispatchEvent(tableHideEvt);
           } else {
-            mainTable.fireEvent('on' + tableHideEvt.eventType, event);
+            this.fireEvent('on' + tableHideEvt.eventType, event);
           }
           parentTable.fnClose($(this));
           $(this)
@@ -132,9 +131,9 @@ export default class TableHierarchy {
               .eq(0)
           ) {
             if (document.createEvent) {
-              mainTable.dispatchEvent(tableShowEvt);
+              this.dispatchEvent(tableShowEvt);
             } else {
-              mainTable.fireEvent('on' + tableShowEvt.eventType, event);
+              this.fireEvent('on' + tableShowEvt.eventType, event);
             }
             $(this)
               .find('img')
