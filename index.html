@@ -232,7 +232,7 @@
       </div>
 
       <h3 id="usage">Usage</h3>
-      <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">NestedTables</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">settigns</span><span class="p">);</span>
+      <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">nestedTables</span><span class="p">.</span><span class="nx">TableHierarchy</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">settigns</span><span class="p">);</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">initializeTableHierarchy</span><span class="p">();</span>
 </code></pre>
       </div>
@@ -272,11 +272,11 @@
       <p>Triggered when a child hierarchy is shown</p>
 
       <div class="language-js highlighter-rouge"><pre class="highlight"><code>
-        // '#example' is wrapper ID for table hierarchy
-        var tableEle = document.querySelector( "#example .table" );
-        tableEle.addEventListener("onShowChildHierarchy", function(e) {
-            console.log(e);
-        });
+    // '#example' is wrapper ID for table hierarchy
+    var tableEle = document.querySelector( "#example .table" );
+    tableEle.addEventListener("onShowChildHierarchy", function(e) {
+        console.log(e);
+    });
       </code></pre></div>
 
       <h3>onHideChildHierarchy()</h3>
@@ -284,11 +284,11 @@
       <p>Triggered when a child hierarchy is hidden</p>
 
       <div class="language-js highlighter-rouge"><pre class="highlight"><code>
-        // '#example' is wrapper ID for table hierarchy
-        var tableEle = document.querySelector( "#example .table" );
-        tableEle.addEventListener("onHideChildHierarchy", function(e) {
-            console.log(e);
-        });
+    // '#example' is wrapper ID for table hierarchy
+    var tableEle = document.querySelector( "#example .table" );
+    tableEle.addEventListener("onHideChildHierarchy", function(e) {
+        console.log(e);
+    });
       </code></pre></div>
 
       <h2 id="example">Example</h2>
