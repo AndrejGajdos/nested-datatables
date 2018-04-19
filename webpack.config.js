@@ -10,7 +10,9 @@ var outputFileName = "nested.tables";
 outputFileName += (TARGET == 'prod' ? ".min.js" : ".js");
 
 const common = {
-  entry: './index.js',
+  entry: {
+    main: ['@babel/polyfill', './index.js'],
+  }, 
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: outputFileName,
