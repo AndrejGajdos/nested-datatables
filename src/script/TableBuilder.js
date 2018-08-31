@@ -125,7 +125,7 @@ export default class TableBuilder {
 
         if (tableMainHeader.indexOf('<th></th>') !== -1) {
           if (Object.keys(tableDataInJson[k].kids).length > 0) {
-            TableMainBody += '<td><img src="' + ArrowImg + '"></td>';
+            TableMainBody += '<td class="arrowContainer"><img src="' + ArrowImg + '"></td>';
           } else {
             TableMainBody += '<td></td>';
           }

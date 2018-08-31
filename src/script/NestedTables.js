@@ -70,7 +70,7 @@ export default class TableHierarchy {
     this.tableContainerSelector.on('click', 'tbody tr', function() {
       if (
         $(this).attr('class') !== 'details' &&
-        $(this).find('td img').length > 0
+        $(this).find('.arrowContainer img').length > 0
       ) {
         if (document.createEvent) {
           tableShowEvt = document.createEvent('HTMLEvents');
@@ -121,13 +121,13 @@ export default class TableHierarchy {
           }
           parentTable.fnClose($(this));
           $(this)
-            .find('img')
+            .find('.arrowContainer img')
             .removeClass('rotate-down')
             .addClass('rotate-up');
         } else {
           if (
             $(this)
-              .find('img')
+              .find('.arrowContainer img')
               .eq(0)
           ) {
             if (document.createEvent) {
@@ -136,7 +136,7 @@ export default class TableHierarchy {
               this.fireEvent('on' + tableShowEvt.eventType, event);
             }
             $(this)
-              .find('img')
+              .find('.arrowContainer img')
               .removeClass('rotate-up')
               .addClass('rotate-down');
             that.tableBuilder
@@ -195,8 +195,8 @@ export default class TableHierarchy {
    * @param {DataTable} table initialized DataTable table
    */
   setWidthOfCellsWithNarrows(table) {
-    if (table.find('tbody tr:first-child td img').length > 0) {
-      table.find('tbody tr td:first-child img').each(function() {
+    if (table.find('tbody tr:first-child .arrowContainer img').length > 0) {
+      table.find('tbody tr .arrowContainer:first-child img').each(function() {
         $(this)
           .parent()
           .closest('td')
