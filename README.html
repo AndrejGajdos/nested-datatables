@@ -1,98 +1,100 @@
-# Nested-datatables
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
 
-jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.
+<h1 id="nested-datatables">Nested-datatables</h1>
 
-### [Demo](https://andrejgajdos.github.io/nested-datatables/)
+<p>jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.</p>
 
-### [JSFiddle](https://jsfiddle.net/andrej_gajdos/zu11wk2o/37/)
+<h3 id="demohttps:andrejgajdos.github.ionested-datatables"><a href="https://andrejgajdos.github.io/nested-datatables/">Demo</a></h3>
 
-## Installation
+<h3 id="jsfiddlehttps:jsfiddle.netandrej_gajdoszu11wk2o37"><a href="https://jsfiddle.net/andrej_gajdos/zu11wk2o/37/">JSFiddle</a></h3>
 
-Download the [latest version](https://github.com/AndrejGajdos/nested-datatables/archive/master.zip) and include [nested.datatables.min.js](https://github.com/AndrejGajdos/nested-datatables/blob/master/dist/nested.datatables.js) file
+<h2 id="installation">Installation</h2>
 
-### NPM
+<p>Download the <a href="https://github.com/AndrejGajdos/nested-datatables/archive/master.zip">latest version</a> and include <a href="https://github.com/AndrejGajdos/nested-datatables/blob/master/dist/nested.datatables.js">nested.datatables.min.js</a> file</p>
 
-```
-$ npm install nested-datatables
-```
+<h3 id="npm">NPM</h3>
 
-### Usage
+<pre><code>$ npm install nested-datatables
+</code></pre>
 
-```js
-var table = new nestedTables.TableHierarchy('example', data, settigns);
+<h3 id="usage">Usage</h3>
+
+<pre><code class="js">var table = new nestedTables.TableHierarchy('example', data, settigns);
 table.initializeTableHierarchy();
-```
+</code></pre>
 
-## Methods
+<h2 id="methods">Methods</h2>
 
-### TableHierarchy(wrapperID, data, settings)
+<h3 id="tablehierarchywrapperiddatasettings">TableHierarchy(wrapperID, data, settings)</h3>
 
-Main NestedTables constructor.
+<p>Main NestedTables constructor.</p>
 
-#### wrapperID
+<h4 id="wrapperid">wrapperID</h4>
 
-Type: `String`
+<p>Type: <code>String</code></p>
 
-ID of a DOM element where will be table hierarchy rendered.
+<p>ID of a DOM element where will be table hierarchy rendered.</p>
 
-#### data
+<h4 id="data">data</h4>
 
-Type: `Array.<Object>`
+<p>Type: <code>Array.&lt;Object&gt;</code></p>
 
-Data used for building table hierarchy. Each item consists of property `data` and property `kids`, which represents array of child elements.
+<p>Data used for building table hierarchy. Each item consists of property <code>data</code> and property <code>kids</code>, which represents array of child elements.</p>
 
-Check examples below how to define json data.
+<p>Check examples below how to define json data.</p>
 
-#### settings
+<h4 id="settings">settings</h4>
 
-Type: `Object`
+<p>Type: <code>Object</code></p>
 
-Settings for jQuery DataTables constructor.
+<p>Settings for jQuery DataTables constructor.</p>
 
-### .initializeTableHierarchy()
+<h3 id=".initializetablehierarchy">.initializeTableHierarchy()</h3>
 
-Build nested table hierarchy.
+<p>Build nested table hierarchy.</p>
 
-## Events
+<h2 id="events">Events</h2>
 
-#### onShowChildHierarchy
+<h4 id="onshowchildhierarchy">onShowChildHierarchy</h4>
 
-Triggered when a child hierarchy is shown
+<p>Triggered when a child hierarchy is shown</p>
 
-```js
-// '#example' is wrapper ID for table hierarchy
+<pre><code class="js">// '#example' is wrapper ID for table hierarchy
 var tableEle = document.querySelector('#example .table');
 tableEle.addEventListener('onShowChildHierarchy', function(e) {
   console.log(e);
 });
-```
+</code></pre>
 
-#### onHideChildHierarchy
+<h4 id="onhidechildhierarchy">onHideChildHierarchy</h4>
 
-Triggered when a child hierarchy is hidden
+<p>Triggered when a child hierarchy is hidden</p>
 
-```js
-// '#example' is wrapper ID for table hierarchy
+<pre><code class="js">// '#example' is wrapper ID for table hierarchy
 var tableEle = document.querySelector('#example .table');
 tableEle.addEventListener('onHideChildHierarchy', function(e) {
   console.log(e);
 });
-```
+</code></pre>
 
-## Example
+<h2 id="example">Example</h2>
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
 
-    <script src="./dist/nested.datatables.min.js"></script>
-  </head>
-  <body>
-    <div id="example" class="container"></div>
+    &lt;script src=&quot;./dist/nested.datatables.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;example&quot; class=&quot;container&quot;&gt;&lt;/div&gt;
 
-    <script>
+    &lt;script&gt;
       var dataInJson = [
         {
           data: {
@@ -255,25 +257,24 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
         settigns
       );
       table.initializeTableHierarchy();
-    </script>
-  </body>
-</html>
-```
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
-## Example 2
+<h2 id="example2">Example 2</h2>
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
 
-    <script src="./dist/nested.datatables.min.js"></script>
-  </head>
-  <body>
-    <div id="example" class="container"></div>
+    &lt;script src=&quot;./dist/nested.datatables.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;example&quot; class=&quot;container&quot;&gt;&lt;/div&gt;
 
-    <script>
+    &lt;script&gt;
       var dataInJson2 = [
         {
           data: {
@@ -283,9 +284,9 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
             {
               data: {
                 ' ':
-                  '&lt;input type="checkbox" name="exampleCheckbox" value="exampleCheckbox"&gt;',
+                  '&amp;lt;input type=&quot;checkbox&quot; name=&quot;exampleCheckbox&quot; value=&quot;exampleCheckbox&quot;&amp;gt;',
                 img:
-                  '&lt;img src=https:\/\/picsum.photos\/100\/100 width=20 \/&gt;',
+                  '&amp;lt;img src=https:\/\/picsum.photos\/100\/100 width=20 \/&amp;gt;',
                 like: {
                   value: 47,
                   cellClass: 'likeCell',
@@ -299,9 +300,9 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
             {
               data: {
                 ' ':
-                  '&lt;input type="checkbox" name="exampleCheckbox2" value="exampleCheckbox2"&gt;',
+                  '&amp;lt;input type=&quot;checkbox&quot; name=&quot;exampleCheckbox2&quot; value=&quot;exampleCheckbox2&quot;&amp;gt;',
                 img:
-                  '&lt;img src=https:\/\/picsum.photos\/100\/100 width=20 \/&gt;',
+                  '&amp;lt;img src=https:\/\/picsum.photos\/100\/100 width=20 \/&amp;gt;',
                 like: 24,
                 perf: 66.66666666666667,
                 date: '2018-08-31'
@@ -326,11 +327,15 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
         settigns
       );
       table.initializeTableHierarchy();
-    </script>
-  </body>
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="license">License</h2>
+
+<p>MIT © <a href="http://andrejgajdos.com">Andrej Gajdos</a></p>
+
+</body>
 </html>
-```
 
-## License
-
-MIT © [Andrej Gajdos](http://andrejgajdos.com)
