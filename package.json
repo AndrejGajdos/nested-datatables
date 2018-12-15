@@ -1,6 +1,6 @@
 {
   "name": "nested-datatables",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.",
   "main": "dist/nested.tables.min.js",
   "scripts": {
