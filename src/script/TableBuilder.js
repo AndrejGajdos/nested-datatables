@@ -16,6 +16,7 @@ export default class TableBuilder {
     this.dataInJson = JSON.parse(JSON.stringify(tableDataInJson));
     this.table = '';
     this.tableIdString = '';
+    this.tableContainerID = tableContainerID;
   }
 
   getTable() {
@@ -48,7 +49,7 @@ export default class TableBuilder {
 
       this.tableIdString = this.idParser.getElementId() + '_tab_0';
     } else {
-      this.tableIdString = 'tab_0';
+      this.tableIdString = this.tableContainerID + 'tab_0';
     }
 
     let tableInHtml = '<div>';
@@ -77,14 +78,47 @@ export default class TableBuilder {
   }
 
   /**
+   * Get all header classes from table data
+   *
+   * @param  {*} tableDataInJson data in json
+   * @return {Map.<String, String>}	array of properties
+   */
+  getHeaderClasses(tableDataInJson, properties) {
+    let headerClasses = new Map();
+    for (let i = 0; i < tableDataInJson.length; i++) {
+      let objKeys = Object.keys(tableDataInJson[i]);
+      if (objKeys.length > 0) {
+        let objKeysData = Object.keys(tableDataInJson[i].data);
+        if (objKeysData.length > 0) {
+          for (let l = 0; l < properties.length; l++) {
+            if (
+              Object.keys(tableDataInJson[i].data).indexOf(properties[l]) !== -1
+            ) {
+              const CellData = tableDataInJson[i].data[properties[l]];
+              if (CellData instanceof Object && CellData['headerClass'] != null) {
+                if (headerClasses.get([properties[l]])) {
+                  console.warn('Header class for property ' + [properties[l]] + ' is defined more than once');
+                }
+                headerClasses.set(properties[l], CellData['headerClass'])
+              }
+            }
+          }
+        }
+      }
+    }
+    return headerClasses;
+  }
+
+  /**
    * Build header part of table
    *
    * @param  {Object} propertyName    Object property as a header of table
    * @param  {Json} tableDataInJson 	Data in json format
    * @param  {Array.<Object>} properties 	All object properties
+   * @param  {Map.<String, String>} property, headerClass
    * @return {String}                 Table header as string
    */
-  buildTableHeader(propertyName, tableDataInJson, properties) {
+  buildTableHeader(propertyName, tableDataInJson, properties, headerClasses) {
     let TableMainHeader = '<thead><tr>';
 
     if (propertyName !== '') {
@@ -100,7 +134,12 @@ export default class TableBuilder {
     }
 
     for (let k = 0; k < properties.length; k++) {
-      TableMainHeader += '<th>' + properties[k] + '</th>';
+      const headerClass = headerClasses.get(properties[k]);
+      if (headerClass) {
+        TableMainHeader += '<th class=\"'+ headerClass +'\">' + properties[k] + '</th>';
+      } else {
+        TableMainHeader += '<th>' + properties[k] + '</th>';
+      }
     }
     TableMainHeader += '</tr></thead>';
 
@@ -125,7 +164,8 @@ export default class TableBuilder {
 
         if (tableMainHeader.indexOf('<th></th>') !== -1) {
           if (Object.keys(tableDataInJson[k].kids).length > 0) {
-            TableMainBody += '<td class="arrowContainer"><img src="' + ArrowImg + '"></td>';
+            TableMainBody +=
+              '<td class="arrowContainer"><img src="' + ArrowImg + '"></td>';
           } else {
             TableMainBody += '<td></td>';
           }
@@ -136,6 +176,13 @@ export default class TableBuilder {
             Object.keys(tableDataInJson[k].data).indexOf(properties[l]) === -1
           ) {
             TableMainBody += '<td></td>';
+          } else if (tableDataInJson[k].data[properties[l]] instanceof Object) {
+            TableMainBody +=
+              '<td class="' +
+              tableDataInJson[k].data[properties[l]]['cellClass'] +
+              '">' +
+              tableDataInJson[k].data[properties[l]]['value'] +
+              '</td>';
           } else {
             TableMainBody +=
               '<td>' + tableDataInJson[k].data[properties[l]] + '</td>';
@@ -158,14 +205,17 @@ export default class TableBuilder {
    */
   buildTableContent(tableDataInJson) {
     let tableHeader = '';
-    let properties = {};
+    let properties = [];
+    let headerClasses = [];
     if (Array.isArray(tableDataInJson)) {
       properties = this.getAllObjectProperties(tableDataInJson);
+      headerClasses = this.getHeaderClasses(tableDataInJson, properties)
+      console.log(headerClasses)
       tableHeader =
         '<table class="table table-striped table-bordered cell-border" id="' +
         this.tableIdString +
         '">' +
-        this.buildTableHeader('', tableDataInJson, properties);
+        this.buildTableHeader('', tableDataInJson, properties, headerClasses);
       return (
         tableHeader +
         this.buildTableBody(tableHeader, tableDataInJson, properties) +

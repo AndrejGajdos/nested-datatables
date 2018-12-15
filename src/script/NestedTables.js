@@ -20,20 +20,20 @@ export default class TableHierarchy {
     if (tableParentID !== undefined) {
       this.tableContainerSelector = $('#' + tableParentID);
       if (!this.tableContainerSelector.length) {
-        console.log('Element with id "' + tableParentID + '" doesn\'t exist!');
+        console.error('Element with id "' + tableParentID + '" doesn\'t exist!');
       }
     }
     // check if data is defined
     if (tableDataInJson !== undefined) {
       this.tableBuilder = new TableBuilder(tableParentID, tableDataInJson);
     } else {
-      console.log('Data are undefined!');
+      console.error('Data are undefined!');
     }
     // check if DataTable settings object is defined
     if (dataTableSettings !== undefined) {
       this.dataTableSettings = dataTableSettings;
     } else {
-      console.log('DataTable settings are undefined!');
+      console.error('DataTable settings are undefined!');
     }
     this.tables = []; // created table objects in hierarchy
     this.tableToShow;

@@ -1,299 +1,415 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width,maximum-scale=2" />
+    <meta
+      name="description"
+      content="nested-datatables : jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table."
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="viewport" content="width=device-width,maximum-scale=2">
-  <meta name="description" content="nested-datatables : jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./src/styles/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"
+    />
 
-  <link rel="stylesheet" type="text/css" media="screen" href="/nested-datatables/assets/css/style.css?v=cd7a2da0f2f66a8c86379cbde71985cbd9e0c742">
+    <script src="./dist/nested.tables.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-  <script src="/nested-datatables/dist/nested.tables.min.js"></script>
+    <style>
+      footer {
+        margin: 5em auto;
+        max-width: 90%;
+        width: 40em;
+        color: #fff;
+        margin: 0;
+        max-width: 100%;
+        padding: 2em;
+        text-align: center;
+        width: 100%;
+      }
 
-  <style>
-    footer {
-      margin: 5em auto;
-      max-width: 90%;
-      width: 40em;
-      color: #FFF;
-      margin: 0;
-      max-width: 100%;
-      padding: 2em;
-      text-align: center;
-      width: 100%;
-    }
+      footer img {
+        height: 1em;
+        border: none;
+        vertical-align: middle;
+        box-shadow: none;
+      }
+    </style>
 
-    footer img {
-      height: 1em;
-      border: none;
-      vertical-align: middle;
-      box-shadow: none;
-    }
-  </style>
+    <title>nested-datatables</title>
+  </head>
 
-  <title>nested-datatables</title>
-</head>
+  <body cz-shortcut-listen="true">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <a
+          id="forkme_banner"
+          href="https://github.com/AndrejGajdos/nested-datatables"
+          >View on GitHub</a
+        >
 
-<body cz-shortcut-listen="true">
+        <h1 id="project_title">Nested-datatables</h1>
+        <h2 id="project_tagline">
+          jQuery DataTables plugin for rendering nested DataTables in rows.
+          Inner tables are independent of the data and layout from the outer
+          table.
+        </h2>
+      </header>
+    </div>
 
-  <!-- HEADER -->
-  <div id="header_wrap" class="outer">
-    <header class="inner">
-      <a id="forkme_banner" href="https://github.com/AndrejGajdos/nested-datatables">View on GitHub</a>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="nested-datatables">Nested-datatables</h1>
+        <p>
+          jQuery DataTables plugin for rendering nested DataTables in rows.
+          Inner tables are independent of the data and layout from the outer
+          table.
+        </p>
 
-      <h1 id="project_title">Nested-datatables</h1>
-      <h2 id="project_tagline">jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.</h2>
+        <h3 id="demo">Demo</h3>
+        <h4 id="jsfiddle">
+          <a href="https://jsfiddle.net/andrej_gajdos/zu11wk2o/37/">jsfiddle</a>
+        </h4>
 
+        <div id="example" class="container"></div>
 
-    </header>
-  </div>
+        <h3 id="demo">
+          Demo with inner html elements and custom table header and cell classes
+        </h3>
 
-  <!-- MAIN CONTENT -->
-  <div id="main_content_wrap" class="outer">
-    <section id="main_content" class="inner">
-      <h1 id="nested-datatables">Nested-datatables</h1>
-      <p>jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table.</p>
+        <div id="example2" class="container2"></div>
 
-      <h3 id="demo">Demo</h3>
-
-      <div id="example" class='container'></div>
-
-      <script>
-        var dataInJson = [{
-            "data": {
-              "name": "b1",
-              "street": "s1",
-              "city": "c1",
-              "departments": 10,
-              "offices": 15
-            },
-            "kids": [{
-              "data": {
-                "department": "HR",
-                "supervisor": "Isidor Bristol",
-                "floor": 1,
-                "employees": 15
+        <script>
+          var dataInJson = [
+            {
+              data: {
+                name: 'b1',
+                street: 's1',
+                city: 'c1',
+                departments: 10,
+                offices: 15
               },
-              "kids": [{
-                  "data": {
-                    "name": "Klement Nikodemos",
-                    "phone": "+938462",
-                    "hire_date": "January 1, 2010",
-                    "id": 3456
+              kids: [
+                {
+                  data: {
+                    department: 'HR',
+                    supervisor: 'Isidor Bristol',
+                    floor: 1,
+                    employees: 15
                   },
-                  "kids": []
-                }, {
-                  "data": {
-                    "name": "Madhava Helmuth",
-                    "phone": "+348902",
-                    "hire_date": "May 23, 2002",
-                    "id": 1234
+                  kids: [
+                    {
+                      data: {
+                        name: 'Klement Nikodemos',
+                        phone: '+938462',
+                        hire_date: 'January 1, 2010',
+                        id: 3456
+                      },
+                      kids: []
+                    },
+                    {
+                      data: {
+                        name: 'Madhava Helmuth',
+                        phone: '+348902',
+                        hire_date: 'May 23, 2002',
+                        id: 1234
+                      },
+                      kids: []
+                    },
+                    {
+                      data: {
+                        name: 'Andria Jesse',
+                        phone: '456123',
+                        hire_date: 'October 23, 2011',
+                        id: 9821
+                      },
+                      kids: []
+                    }
+                  ]
+                },
+                {
+                  data: {
+                    department: 'development',
+                    supervisor: 'Jim Linwood',
+                    floor: 2,
+                    employees: 18
                   },
-                  "kids": []
-                }, {
-                  "data": {
-                    "name": "Andria Jesse",
-                    "phone": "456123",
-                    "hire_date": "October 23, 2011",
-                    "id": 9821
+                  kids: [
+                    {
+                      data: {
+                        name: 'Origenes Maxwell',
+                        phone: '345892',
+                        hire_date: 'February 1, 2004',
+                        id: 6234
+                      },
+                      kids: []
+                    }
+                  ]
+                },
+                {
+                  data: {
+                    department: 'testing',
+                    supervisor: 'Zekeriya Seok',
+                    floor: 4,
+                    employees: 11
                   },
-                  "kids": []
+                  kids: []
                 }
-
               ]
-            }, {
-              "data": {
-                "department": "development",
-                "supervisor": "Jim Linwood",
-                "floor": 2,
-                "employees": 18
-              },
-              "kids": [{
-                  "data": {
-                    "name": "Origenes Maxwell",
-                    "phone": "345892",
-                    "hire_date": "February 1, 2004",
-                    "id": 6234
-                  },
-                  "kids": []
-                }
-
-              ]
-            }, {
-              "data": {
-                "department": "testing",
-                "supervisor": "Zekeriya Seok",
-                "floor": 4,
-                "employees": 11
-              },
-              "kids": []
-
-            }]
-          }, {
-            "data": {
-              "name": "b2",
-              "street": "s10",
-              "city": "c2",
-              "departments": 3,
-              "offices": 10
             },
-            "kids": [{
-              "data": {
-                "department": "development",
-                "supervisor": "Gallagher Howie",
-                "floor": 8,
-                "employees": 24
+            {
+              data: {
+                name: 'b2',
+                street: 's10',
+                city: 'c2',
+                departments: 3,
+                offices: 10
               },
-              "kids": [{
-                  "data": {
-                    "name": "Wat Dakota"
+              kids: [
+                {
+                  data: {
+                    department: 'development',
+                    supervisor: 'Gallagher Howie',
+                    floor: 8,
+                    employees: 24
                   },
-                  "kids": []
-                }
-
-              ]
-            }, {
-              "data": {
-                "department": "testing",
-                "supervisor": "Shirley Gayle",
-                "floor": 4,
-                "employees": 11
-              },
-              "kids": []
-
-            }]
-
-          }, {
-            "data": {
-              "name": "b3",
-              "street": "s3",
-              "city": "c3",
-              "departments": 2,
-              "offices": 1
-            },
-            "kids": [{
-              "data": {
-                "department": "development"
-              },
-              "kids": [{
-                  "data": {
-                    "name": "Wat Dakota"
+                  kids: [
+                    {
+                      data: {
+                        name: 'Wat Dakota'
+                      },
+                      kids: []
+                    }
+                  ]
+                },
+                {
+                  data: {
+                    department: 'testing',
+                    supervisor: 'Shirley Gayle',
+                    floor: 4,
+                    employees: 11
                   },
-                  "kids": []
+                  kids: []
                 }
-
               ]
-            }, {
-
-            }]
-          },
-
-          {
-            "data": {
-              "name": "b4",
-              "city": "c4"
             },
-            "kids": []
-          }
+            {
+              data: {
+                name: 'b3',
+                street: 's3',
+                city: 'c3',
+                departments: 2,
+                offices: 1
+              },
+              kids: [
+                {
+                  data: {
+                    department: 'development'
+                  },
+                  kids: [
+                    {
+                      data: {
+                        name: 'Wat Dakota'
+                      },
+                      kids: []
+                    }
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              data: {
+                name: 'b4',
+                city: 'c4'
+              },
+              kids: []
+            }
+          ];
 
-        ];
+          var dataInJson2 = [
+            {
+              data: {
+                date: '2018-08'
+              },
+              kids: [
+                {
+                  data: {
+                    ' ':
+                      '<input type="checkbox" name="exampleCheckbox" value="exampleCheckbox">',
+                    img:
+                      '<img src=https:\/\/picsum.photos\/100\/100 width=20 \/>',
+                    like: {
+                      value: 47,
+                      cellClass: 'likeCell',
+                      headerClass: 'likeHeader'
+                    },
+                    perf: { value: 130.55555555555554, cellClass: 'perf' },
+                    date: '2018-08-30'
+                  },
+                  kids: []
+                },
+                {
+                  data: {
+                    ' ':
+                      '<input type="checkbox" name="exampleCheckbox2" value="exampleCheckbox2">',
+                    img:
+                      '<img src=https:\/\/picsum.photos\/100\/100 width=20 \/>',
+                    like: 24,
+                    perf: 66.66666666666667,
+                    date: '2018-08-31'
+                  },
+                  kids: []
+                }
+              ]
+            }
+          ];
 
-        var settings = {
-          "iDisplayLength": 20,
-          "bLengthChange": false,
-          "bFilter": false,
-          "bSort": false,
-          "bInfo": false
-        };
+          var settings = {
+            iDisplayLength: 20,
+            bLengthChange: false,
+            bFilter: false,
+            bSort: false,
+            bInfo: false
+          };
 
-        var table = new nestedTables.TableHierarchy("example", dataInJson, settings);
-        table.initializeTableHierarchy();
+          var table = new nestedTables.TableHierarchy(
+            'example',
+            dataInJson,
+            settings
+          );
+          table.initializeTableHierarchy();
 
-        var tableEle = document.querySelector( "#example .table" );
-        tableEle.addEventListener("onShowChildHierarchy", function(e) {
+          var table2 = new nestedTables.TableHierarchy(
+            'example2',
+            dataInJson2,
+            settings
+          );
+          table2.initializeTableHierarchy();
+
+          var tableEle = document.querySelector('#example .table');
+          tableEle.addEventListener('onShowChildHierarchy', function(e) {
             console.log(e);
-        });
-        tableEle.addEventListener("onHideChildHierarchy", function(e) {
+          });
+          tableEle.addEventListener('onHideChildHierarchy', function(e) {
             console.log(e);
-        });
-      </script>
+          });
+        </script>
 
-      <h3 id="jsfiddle"><a href='https://jsfiddle.net/andrej_gajdos/zu11wk2o/37/'>JSFiddle</a></h3>
+        <h2 id="installation">Installation</h2>
 
-      <h2 id="installation">Installation</h2>
+        <p>
+          Download the
+          <a
+            href="https://github.com/AndrejGajdos/nested-datatables/archive/master.zip"
+            >latest version</a
+          >
+          and include
+          <a
+            href="https://github.com/AndrejGajdos/nested-datatables/blob/master/dist/nested.datatables.js"
+            >nested.datatables.min.js</a
+          >
+          file
+        </p>
 
-      <p>Download the <a href="https://github.com/AndrejGajdos/nested-datatables/archive/master.zip">latest version</a> and include <a href="https://github.com/AndrejGajdos/nested-datatables/blob/master/dist/nested.datatables.js">nested.datatables.min.js</a>        file</p>
-
-      <h3 id="npm">NPM</h3>
-      <div class="highlighter-rouge"><pre class="highlight"><code>$ npm install nested-datatables
+        <h3 id="npm">NPM</h3>
+        <div class="highlighter-rouge">
+          <pre class="highlight"><code>$ npm install nested-datatables
 </code></pre>
-      </div>
+        </div>
 
-      <h3 id="usage">Usage</h3>
-      <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">nestedTables</span><span class="p">.</span><span class="nx">TableHierarchy</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">settigns</span><span class="p">);</span>
+        <h3 id="usage">Usage</h3>
+        <div class="language-js highlighter-rouge">
+          <pre
+            class="highlight"
+          ><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">nestedTables</span><span class="p">.</span><span class="nx">TableHierarchy</span><span class="p">(</span><span class="s2">"example"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">settigns</span><span class="p">);</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">initializeTableHierarchy</span><span class="p">();</span>
 </code></pre>
-      </div>
+        </div>
 
-      <h2 id="api">Methods</h2>
+        <h2 id="api">Methods</h2>
 
-      <h3 id="nestedtableswrapperid-data-settings">nestedTables.TableHierarchy(wrapperID, data, settings)</h3>
+        <h3 id="nestedtableswrapperid-data-settings">
+          nestedTables.TableHierarchy(wrapperID, data, settings)
+        </h3>
 
-      <p>Main NestedTables constructor.</p>
+        <p>Main NestedTables constructor.</p>
 
-      <h4 id="wrapperid">wrapperID</h4>
+        <h4 id="wrapperid">wrapperID</h4>
 
-      <p>Type: <code class="highlighter-rouge">String</code></p>
+        <p>Type: <code class="highlighter-rouge">String</code></p>
 
-      <p>ID of a DOM element where will be table hierarchy rendered.</p>
+        <p>ID of a DOM element where will be table hierarchy rendered.</p>
 
-      <h4 id="data">data</h4>
+        <h4 id="data">data</h4>
 
-      <p>Type: <code class="highlighter-rouge">Array.&lt;Object&gt;</code></p>
+        <p>Type: <code class="highlighter-rouge">Array.&lt;Object&gt;</code></p>
 
-      <p>Data used for building table hierarchy. Each item consists of property <code class="highlighter-rouge">data</code> and property <code class="highlighter-rouge">kids</code>, which represents array of child elements.</p>
+        <p>
+          Data used for building table hierarchy. Each item consists of property
+          <code class="highlighter-rouge">data</code> and property
+          <code class="highlighter-rouge">kids</code>, which represents array of
+          child elements.
+        </p>
 
-      <h4 id="settings">settings</h4>
+        Check <a href="#exampleHeader">examples</a> how to define json data
 
-      <p>Type: <code class="highlighter-rouge">Object</code></p>
+        <h4 id="settings">settings</h4>
 
-      <p>Settings for jQuery DataTables constructor.</p>
+        <p>Type: <code class="highlighter-rouge">Object</code></p>
 
-      <h3 id="initializetablehierarchy">.initializeTableHierarchy()</h3>
+        <p>Settings for jQuery DataTables constructor.</p>
 
-      <p>Build nested table hierarchy.</p>
+        <h3 id="initializetablehierarchy">.initializeTableHierarchy()</h3>
 
-      <h2 id="api">Events</h2>
+        <p>Build nested table hierarchy.</p>
 
-      <h3>onShowChildHierarchy()</h3>
+        <h2 id="api">Events</h2>
 
-      <p>Triggered when a child hierarchy is shown</p>
+        <h3>onShowChildHierarchy()</h3>
 
-      <div class="language-js highlighter-rouge"><pre class="highlight"><code>
+        <p>Triggered when a child hierarchy is shown</p>
+
+        <div class="language-js highlighter-rouge">
+          <pre class="highlight"><code>
     // '#example' is wrapper ID for table hierarchy
     var tableEle = document.querySelector( "#example .table" );
     tableEle.addEventListener("onShowChildHierarchy", function(e) {
         console.log(e);
     });
-      </code></pre></div>
+      </code></pre>
+        </div>
 
-      <h3>onHideChildHierarchy()</h3>
+        <h3>onHideChildHierarchy()</h3>
 
-      <p>Triggered when a child hierarchy is hidden</p>
+        <p>Triggered when a child hierarchy is hidden</p>
 
-      <div class="language-js highlighter-rouge"><pre class="highlight"><code>
+        <div class="language-js highlighter-rouge">
+          <pre class="highlight"><code>
     // '#example' is wrapper ID for table hierarchy
     var tableEle = document.querySelector( "#example .table" );
     tableEle.addEventListener("onHideChildHierarchy", function(e) {
         console.log(e);
     });
-      </code></pre></div>
+      </code></pre>
+        </div>
 
-      <h2 id="example">Example</h2>
+        <h2 id="exampleHeader">Example</h2>
 
-      <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+        <div class="language-html highlighter-rouge">
+          <pre
+            class="highlight"
+          ><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
@@ -462,21 +578,65 @@
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
-      </div>
+        </div>
 
-    </section>
-  </div>
+        <h2 id="exampleHeader2">
+          Example with inner html elements and custom table header and cell
+          classes
+        </h2>
 
-  <!-- FOOTER  -->
-  <div id="footer_wrap" class="outer">
-    <footer class="inner">
+        <div class="language-js highlighter-rouge">
+          <pre class="highlight"><code>
+        var dataInJson2 = [  
+   {  
+      "data":{  
+         "date": "2018-08"
+      },
+      "kids":[  
+         {  
+            "data":{
+              " ": "&lt;input type=\"checkbox\" name=\"exampleCheckbox\" value=\"exampleCheckbox\"&gt;",
+              "img":"&lt;img src=https:\/\/picsum.photos\/100\/100 width=20 \/&gt;",
+              "like": { value: 47, cellClass: 'likeCell', headerClass: 'likeHeader'},
+              "perf": { value: 130.55555555555554, cellClass: 'perf'},
+              "date":"2018-08-30"
+            },
+            "kids":[  
 
-      <footer>
-        Made with <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDE0NCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cGF0aCBkPSJNMTMyLjczIDExLjQxYzE1LjAyNyAxNS4yMTYgMTUuMDI3IDM5Ljg5IDAgNTUuMTA3bC02LjI5OCA2LjM3M0w3MiAxMjhWMTcuMzU2bDYuMjk0LTUuOTQ1Qzg1LjgxIDMuODA1IDk1LjY2IDAgMTA1LjUxIDBjOS44NTIgMCAxOS43MDMgMy44MDMgMjcuMjIgMTEuNDF6bS0xMjEuNDYgMGMtMTUuMDI3IDE1LjIxNi0xNS4wMjcgMzkuODkgMCA1NS4xMDdsNi4yOTggNi4zNzNMNzIgMTI4VjE3LjM1NmwtNi4yOTQtNS45NDVDNTguMTkgMy44MDUgNDguMzQgMCAzOC40OSAwYy05Ljg1MiAwLTE5LjcwMyAzLjgwMy0yNy4yMiAxMS40MXoiIGZpbGw9IiNGRTYwNjAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgLz4KPC9zdmc+Cg=="> by <a href="http://andrejgajdos.com/">Andrej Gajdos</a> · Published under the <a href="http://opensource.org/licenses/MIT">MIT license</a>
+            ]
+         },
+         {  
+            "data":{
+              " ": "&lt;input type=\"checkbox\" name=\"exampleCheckbox2\" value=\"exampleCheckbox2\"&gt;",
+              "img":"&lt;img src=https:\/\/picsum.photos\/100\/100 width=20 \/&gt;",
+              "like":24,
+              "perf":66.66666666666667,
+              "date":"2018-08-31"
+            },
+            "kids":[  
+
+            ]
+         }
+      ]
+   }
+];
+          </code></pre>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <footer>
+          Made with
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDE0NCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cGF0aCBkPSJNMTMyLjczIDExLjQxYzE1LjAyNyAxNS4yMTYgMTUuMDI3IDM5Ljg5IDAgNTUuMTA3bC02LjI5OCA2LjM3M0w3MiAxMjhWMTcuMzU2bDYuMjk0LTUuOTQ1Qzg1LjgxIDMuODA1IDk1LjY2IDAgMTA1LjUxIDBjOS44NTIgMCAxOS43MDMgMy44MDMgMjcuMjIgMTEuNDF6bS0xMjEuNDYgMGMtMTUuMDI3IDE1LjIxNi0xNS4wMjcgMzkuODkgMCA1NS4xMDdsNi4yOTggNi4zNzNMNzIgMTI4VjE3LjM1NmwtNi4yOTQtNS45NDVDNTguMTkgMy44MDUgNDguMzQgMCAzOC40OSAwYy05Ljg1MiAwLTE5LjcwMyAzLjgwMy0yNy4yMiAxMS40MXoiIGZpbGw9IiNGRTYwNjAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgLz4KPC9zdmc+Cg=="
+          />
+          by <a href="http://andrejgajdos.com/">Andrej Gajdos</a> · Published
+          under the <a href="http://opensource.org/licenses/MIT">MIT license</a>
+        </footer>
       </footer>
-    </footer>
-  </div>
-
-</body>
-
+    </div>
+  </body>
 </html>
