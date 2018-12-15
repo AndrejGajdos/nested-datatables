@@ -210,7 +210,6 @@ export default class TableBuilder {
     if (Array.isArray(tableDataInJson)) {
       properties = this.getAllObjectProperties(tableDataInJson);
       headerClasses = this.getHeaderClasses(tableDataInJson, properties)
-      console.log(headerClasses)
       tableHeader =
         '<table class="table table-striped table-bordered cell-border" id="' +
         this.tableIdString +
