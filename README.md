@@ -241,7 +241,7 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
         }
       ];
 
-      var settigns = {
+      var settings = {
         iDisplayLength: 20,
         bLengthChange: false,
         bFilter: false,
@@ -252,7 +252,7 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
       var table = new nestedTables.TableHierarchy(
         'example',
         dataInJson,
-        settigns
+        settings
       );
       table.initializeTableHierarchy();
     </script>
@@ -312,7 +312,7 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
         }
       ];
 
-      var settigns = {
+      var settings = {
         iDisplayLength: 20,
         bLengthChange: false,
         bFilter: false,
@@ -323,7 +323,7 @@ tableEle.addEventListener('onHideChildHierarchy', function(e) {
       var table = new nestedTables.TableHierarchy(
         'example',
         dataInJson,
-        settigns
+        settings
       );
       table.initializeTableHierarchy();
     </script>
