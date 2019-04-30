@@ -19,7 +19,7 @@ $ npm install nested-datatables
 ### Usage
 
 ```js
-var table = new nestedTables.TableHierarchy('example', data, settigns);
+var table = new nestedTables.TableHierarchy('example', data, settings);
 table.initializeTableHierarchy();
 ```
 
