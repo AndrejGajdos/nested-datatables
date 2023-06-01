@@ -331,5 +331,4 @@ tableEle.addEventListener("onHideChildHierarchy", function (e) {
 
 MIT © [Andrej Gajdos](http://andrejgajdos.com)
 
-[Notion Api Connector](https://notionapiconnector.com/)
-[SalesforceToNotion](https://salesforcetonotion.com/)
+[Notion Api Connector](https://notionapiconnector.com/) · [SalesforceToNotion](https://salesforcetonotion.com/)
