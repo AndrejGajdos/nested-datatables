@@ -9,10 +9,19 @@
       content="nested-datatables : jQuery DataTables plugin for rendering nested DataTables in rows. Inner tables are independent of the data and layout from the outer table."
     />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/nested-datatables/assets/css/style.css?v=cd7a2da0f2f66a8c86379cbde71985cbd9e0c742">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-  
-  <script src="/nested-datatables/dist/nested.tables.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/nested-datatables/assets/css/style.css?v=cd7a2da0f2f66a8c86379cbde71985cbd9e0c742"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"
+    />
+
+    <script src="/nested-datatables/dist/nested.tables.min.js"></script>
 
     <style>
       footer {
@@ -84,186 +93,182 @@
           var dataInJson = [
             {
               data: {
-                name: 'b1',
-                street: 's1',
-                city: 'c1',
+                name: "b1",
+                street: "s1",
+                city: "c1",
                 departments: 10,
-                offices: 15
+                offices: 15,
               },
               kids: [
                 {
                   data: {
-                    department: 'HR',
-                    supervisor: 'Isidor Bristol',
+                    department: "HR",
+                    supervisor: "Isidor Bristol",
                     floor: 1,
-                    employees: 15
+                    employees: 15,
                   },
                   kids: [
                     {
                       data: {
-                        name: 'Klement Nikodemos',
-                        phone: '+938462',
-                        hire_date: 'January 1, 2010',
-                        id: 3456
+                        name: "Klement Nikodemos",
+                        phone: "+938462",
+                        hire_date: "January 1, 2010",
+                        id: 3456,
                       },
-                      kids: []
+                      kids: [],
                     },
                     {
                       data: {
-                        name: 'Madhava Helmuth',
-                        phone: '+348902',
-                        hire_date: 'May 23, 2002',
-                        id: 1234
+                        name: "Madhava Helmuth",
+                        phone: "+348902",
+                        hire_date: "May 23, 2002",
+                        id: 1234,
                       },
-                      kids: []
+                      kids: [],
                     },
                     {
                       data: {
-                        name: 'Andria Jesse',
-                        phone: '456123',
-                        hire_date: 'October 23, 2011',
-                        id: 9821
+                        name: "Andria Jesse",
+                        phone: "456123",
+                        hire_date: "October 23, 2011",
+                        id: 9821,
                       },
-                      kids: []
-                    }
-                  ]
+                      kids: [],
+                    },
+                  ],
                 },
                 {
                   data: {
-                    department: 'development',
-                    supervisor: 'Jim Linwood',
+                    department: "development",
+                    supervisor: "Jim Linwood",
                     floor: 2,
-                    employees: 18
+                    employees: 18,
                   },
                   kids: [
                     {
                       data: {
-                        name: 'Origenes Maxwell',
-                        phone: '345892',
-                        hire_date: 'February 1, 2004',
-                        id: 6234
+                        name: "Origenes Maxwell",
+                        phone: "345892",
+                        hire_date: "February 1, 2004",
+                        id: 6234,
                       },
-                      kids: []
-                    }
-                  ]
+                      kids: [],
+                    },
+                  ],
                 },
                 {
                   data: {
-                    department: 'testing',
-                    supervisor: 'Zekeriya Seok',
+                    department: "testing",
+                    supervisor: "Zekeriya Seok",
                     floor: 4,
-                    employees: 11
+                    employees: 11,
                   },
-                  kids: []
-                }
-              ]
+                  kids: [],
+                },
+              ],
             },
             {
               data: {
-                name: 'b2',
-                street: 's10',
-                city: 'c2',
+                name: "b2",
+                street: "s10",
+                city: "c2",
                 departments: 3,
-                offices: 10
+                offices: 10,
               },
               kids: [
                 {
                   data: {
-                    department: 'development',
-                    supervisor: 'Gallagher Howie',
+                    department: "development",
+                    supervisor: "Gallagher Howie",
                     floor: 8,
-                    employees: 24
+                    employees: 24,
                   },
                   kids: [
                     {
                       data: {
-                        name: 'Wat Dakota'
+                        name: "Wat Dakota",
                       },
-                      kids: []
-                    }
-                  ]
+                      kids: [],
+                    },
+                  ],
                 },
                 {
                   data: {
-                    department: 'testing',
-                    supervisor: 'Shirley Gayle',
+                    department: "testing",
+                    supervisor: "Shirley Gayle",
                     floor: 4,
-                    employees: 11
+                    employees: 11,
                   },
-                  kids: []
-                }
-              ]
+                  kids: [],
+                },
+              ],
             },
             {
               data: {
-                name: 'b3',
-                street: 's3',
-                city: 'c3',
+                name: "b3",
+                street: "s3",
+                city: "c3",
                 departments: 2,
-                offices: 1
+                offices: 1,
               },
               kids: [
                 {
                   data: {
-                    department: 'development'
+                    department: "development",
                   },
                   kids: [
                     {
                       data: {
-                        name: 'Wat Dakota'
+                        name: "Wat Dakota",
                       },
-                      kids: []
-                    }
-                  ]
+                      kids: [],
+                    },
+                  ],
                 },
-                {}
-              ]
+                {},
+              ],
             },
             {
               data: {
-                name: 'b4',
-                city: 'c4'
+                name: "b4",
+                city: "c4",
               },
-              kids: []
-            }
+              kids: [],
+            },
           ];
 
           var dataInJson2 = [
             {
               data: {
-                date: '2018-08'
+                date: "2018-08",
               },
               kids: [
                 {
                   data: {
-                    ' ':
-                      '<input type="checkbox" name="exampleCheckbox" value="exampleCheckbox">',
-                    img:
-                      '<img src=https:\/\/picsum.photos\/100\/100 width=20 \/>',
+                    " ": '<input type="checkbox" name="exampleCheckbox" value="exampleCheckbox">',
+                    img: "<img src=https:\/\/picsum.photos\/100\/100 width=20 \/>",
                     like: {
                       value: 47,
-                      cellClass: 'likeCell',
-                      headerClass: 'likeHeader'
+                      cellClass: "likeCell",
+                      headerClass: "likeHeader",
                     },
-                    perf: { value: 130.55555555555554, cellClass: 'perf' },
-                    date: '2018-08-30'
+                    perf: { value: 130.55555555555554, cellClass: "perf" },
+                    date: "2018-08-30",
                   },
-                  kids: []
+                  kids: [],
                 },
                 {
                   data: {
-                    ' ':
-                      '<input type="checkbox" name="exampleCheckbox2" value="exampleCheckbox2">',
-                    img:
-                      '<img src=https:\/\/picsum.photos\/100\/100 width=20 \/>',
+                    " ": '<input type="checkbox" name="exampleCheckbox2" value="exampleCheckbox2">',
+                    img: "<img src=https:\/\/picsum.photos\/100\/100 width=20 \/>",
                     like: 24,
                     perf: 66.66666666666667,
-                    date: '2018-08-31'
+                    date: "2018-08-31",
                   },
-                  kids: []
-                }
-              ]
-            }
+                  kids: [],
+                },
+              ],
+            },
           ];
 
           var settings = {
@@ -271,28 +276,28 @@
             bLengthChange: false,
             bFilter: false,
             bSort: false,
-            bInfo: false
+            bInfo: false,
           };
 
           var table = new nestedTables.TableHierarchy(
-            'example',
+            "example",
             dataInJson,
             settings
           );
           table.initializeTableHierarchy();
 
           var table2 = new nestedTables.TableHierarchy(
-            'example2',
+            "example2",
             dataInJson2,
             settings
           );
           table2.initializeTableHierarchy();
 
-          var tableEle = document.querySelector('#example .table');
-          tableEle.addEventListener('onShowChildHierarchy', function(e) {
+          var tableEle = document.querySelector("#example .table");
+          tableEle.addEventListener("onShowChildHierarchy", function (e) {
             console.log(e);
           });
-          tableEle.addEventListener('onHideChildHierarchy', function(e) {
+          tableEle.addEventListener("onHideChildHierarchy", function (e) {
             console.log(e);
           });
         </script>
@@ -624,8 +629,11 @@
           <img
             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDE0NCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cGF0aCBkPSJNMTMyLjczIDExLjQxYzE1LjAyNyAxNS4yMTYgMTUuMDI3IDM5Ljg5IDAgNTUuMTA3bC02LjI5OCA2LjM3M0w3MiAxMjhWMTcuMzU2bDYuMjk0LTUuOTQ1Qzg1LjgxIDMuODA1IDk1LjY2IDAgMTA1LjUxIDBjOS44NTIgMCAxOS43MDMgMy44MDMgMjcuMjIgMTEuNDF6bS0xMjEuNDYgMGMtMTUuMDI3IDE1LjIxNi0xNS4wMjcgMzkuODkgMCA1NS4xMDdsNi4yOTggNi4zNzNMNzIgMTI4VjE3LjM1NmwtNi4yOTQtNS45NDVDNTguMTkgMy44MDUgNDguMzQgMCAzOC40OSAwYy05Ljg1MiAwLTE5LjcwMyAzLjgwMy0yNy4yMiAxMS40MXoiIGZpbGw9IiNGRTYwNjAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgLz4KPC9zdmc+Cg=="
           />
-          by <a href="http://andrejgajdos.com/">Andrej Gajdos</a> · Published
-          under the <a href="http://opensource.org/licenses/MIT">MIT license</a>
+          by <a href="http://andrejgajdos.com/">Andrej Gajdos</a> ·
+          <a href="https://notionapiconnector.com/">Notion Api Connector</a> ·
+          <a href="https://salesforcetonotion.com/">SalesforceToNotion</a> ·
+          Published under the
+          <a href="http://opensource.org/licenses/MIT">MIT license</a>
         </footer>
       </footer>
     </div>
